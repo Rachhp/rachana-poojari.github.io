@@ -3,110 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Treats Bakery</title>
+    <title>Rachana Poojari | Full-Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        :root {
+            --bg-black: #050505;
+            --card-bg: #0f0f0f;
+            --neon-pink: #ff007f;
+            --neon-glow: rgba(255, 0, 127, 0.4);
+            --text-gray: #b0b0b0;
+            --text-white: #ffffff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #fff2f2;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
-        header {
-            background-color: #ff7f7f;
-            padding: 20px;
-            text-align: center;
-            color: white;
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        header h1 {
-            margin: 0;
+
+        /* 3D PROFILE COMPONENT */
+        .profile-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px auto;
+            perspective: 1000px;
         }
-        nav {
-            background-color: #ffc0c0;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        .container {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .cakes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .cake {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            width: 250px;
-            text-align: center;
-            padding: 15px;
-        }
-        .cake img {
+
+        .profile-3d-card {
             width: 100%;
-            border-radius: 10px;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
         }
-        .cake h3 {
-            margin: 10px 0 5px;
+
+        .profile-container:hover .profile-3d-card {
+            transform: rotateY(15deg) rotateX(10deg);
         }
-        .cake p {
-            font-size: 0.9em;
-            color: #666;
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-glow);
+            background: var(--card-bg);
         }
-        footer {
-            background-color: #ff7f7f;
-            text-align: center;
-            color: white;
-            padding: 15px;
+
+        /* SIDE NAVIGATION */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 350px;
+            height: 100vh;
+            background: #080808;
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #1a1a1a;
+            z-index: 1000;
+        }
+
+        .sidebar h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 24px;
+            color: var(--neon-pink);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .sidebar p {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin-bottom: auto;
+        }
+
+        .nav-links li {
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--neon-pink);
+            padding-left: 10px;
+        }
+
+        .social-box {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
+        }
+
+        .social-box a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: var(--text-white);
+            transition: 0.3s;
+        }
+
+        .social-box a:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-glow);
+            color: var(--neon-pink);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            margin-left: 350px;
+            padding: 80px 10%;
+        }
+
+        section {
+            margin-bottom: 120px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 2px;
+            flex-grow: 1;
+            background: linear-gradient(to right, var(--neon-pink), transparent);
+        }
+
+        /* CARDS & GRIDS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .neo-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #1a1a1a;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neo-card:hover {
+            border-color: var(--neon-pink);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .neo-card h3 {
+            color: var(--neon-pink);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .stats-highlight {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--neon-pink);
+            margin-bottom: 5px;
+        }
+
+        /* SKILLS PILLS */
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(255, 0, 127, 0.1);
+            border: 1px solid var(--neon-pink);
+            border-radius: 50px;
+            font-size: 12px;
+            margin: 5px;
+            color: var(--text-white);
+        }
+
+        /* CONTACT BUTTON */
+        .btn-neon {
+            padding: 15px 35px;
+            background: transparent;
+            color: var(--neon-pink);
+            border: 2px solid var(--neon-pink);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .btn-neon:hover {
+            background: var(--neon-pink);
+            color: black;
+            box-shadow: 0 0 20px var(--neon-glow);
+        }
+
+        @media (max-width: 992px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            main { margin-left: 0; padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sweet Treats Bakery</h1>
-        <p>Delicious cakes made with love!</p>
-    </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Menu</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <div class="container">
-        <h2>Our Cakes</h2>
-        <div class="cakes">
-            <div class="cake">
-                <img src="https://via.placeholder.com/250x200.png?text=Chocolate+Cake" alt="Chocolate Cake">
-                <h3>Chocolate Cake</h3>
-                <p>Rich and moist chocolate cake with creamy frosting.</p>
-            </div>
-            <div class="cake">
-                <img src="https://via.placeholder.com/250x200.png?text=Vanilla+Cake" alt="Vanilla Cake">
-                <h3>Vanilla Cake</h3>
-                <p>Classic vanilla sponge cake topped with buttercream.</p>
-            </div>
-            <div class="cake">
-                <img src="https://via.placeholder.com/250x200.png?text=Strawberry+Cake" alt="Strawberry Cake">
-                <h3>Strawberry Cake</h3>
-                <p>Fresh strawberries layered in a soft, fluffy cake.</p>
+    <aside class="sidebar">
+        <div class="profile-container">
+            <div class="profile-3d-card">
+                <img src="1772536548750.jfif" alt="Rachana Poojari" class="profile-img">
             </div>
         </div>
-    </div>
 
-    <footer>
-        &copy; 2026 Sweet Treats Bakery. All Rights Reserved.
-    </footer>
+        <h1>Rachana Poojari</h1>
+        <p>Full-Stack Developer | Industrial Automation</p>
+
+        <ul class="nav-links">
+            <li><a href="#about" class="active"><i class="fa-solid fa-user-ninja mr-2"></i> &nbsp; Overview</a></li>
+            <li><a href="#experience"><i class="fa-solid fa-code-branch mr-2"></i> &nbsp; Industry Exp</a></li>
+            <li><a href="#skills"><i class="fa-solid fa-microchip mr-2"></i> &nbsp; Tech Stack</a></li>
+            <li><a href="#projects"><i class="fa-solid fa-terminal mr-2"></i> &nbsp; Projects</a></li>
+        </ul>
+
+        <div class="social-box">
+            <a href="https://www.linkedin.com/in/rachana-poojari" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Rachhp" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:rachanapoojari2000@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </aside>
+
+    <main>
+        <section id="about">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="neo-card">
+                <p>Full-Stack Developer with 3+ years of production experience in **industrial automation systems** and modern web development[cite: 4]. I specialize in bridging the gap between sophisticated hardware integration and scalable .NET/React architectures[cite: 2, 5].</p>
+                <div style="display: flex; gap: 30px; margin-top: 30px;">
+                    <div>
+                        <div class="stats-highlight">65%</div>
+                        <p style="font-size: 12px; color: var(--text-gray);">Defect Reduction [cite: 7]</p>
+                    </div>
+                    <div>
+                        <div class="stats-highlight">25%</div>
+                        <p style="font-size: 12px; color: var(--text-gray);">Latency Optimization [cite: 7]</p>
+                    </div>
+                    <div>
+                        <div class="stats-highlight">40%</div>
+                        <p style="font-size: 12px; color: var(--text-gray);">Efficiency Gain [cite: 7]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Industry Impact</h2>
+            <div class="grid-container">
+                <div class="neo-card">
+                    <h3>Vertical Lift System (VLS) [cite: 23]</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">Architected end-to-end workflows and state machines for automated warehouse storage[cite: 24]. Integrated laser peripheral protocols via Serial (COM/USB) with full error recovery[cite: 25].</p>
+                </div>
+                <div class="neo-card">
+                    <h3>Automated Bumper Storage [cite: 29]</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">Owned backend architecture and database schema design from scratch[cite: 30]. Developed barcode/QR workflows integrated with forklift controller operations[cite: 31].</p>
+                </div>
+                <div class="neo-card">
+                    <h3>Biometric Integration [cite: 6]</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">Engineered Python-based facial recognition and fingerprint authentication modules integrated with ASP.NET Core backends[cite: 26, 35].</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">The Stack</h2>
+            <div class="neo-card">
+                <h3 style="color: white; border-bottom: 1px solid #222; padding-bottom: 10px;">Backend & Hardware</h3>
+                <div style="margin-bottom: 20px;">
+                    <span class="skill-tag">C# / .NET Core 8 [cite: 10]</span>
+                    <span class="skill-tag">Web API [cite: 10]</span>
+                    <span class="skill-tag">Python (FastAPI) [cite: 10]</span>
+                    <span class="skill-tag">Serial (RS232/USB) [cite: 13]</span>
+                    <span class="skill-tag">PLC Integration [cite: 13]</span>
+                    <span class="skill-tag">Entity Framework [cite: 10]</span>
+                </div>
+
+                <h3 style="color: white; border-bottom: 1px solid #222; padding-bottom: 10px;">Frontend & Modern Web</h3>
+                <div>
+                    <span class="skill-tag">React 18 [cite: 10]</span>
+                    <span class="skill-tag">Next.js 14 [cite: 10]</span>
+                    <span class="skill-tag">TypeScript [cite: 10]</span>
+                    <span class="skill-tag">Redux Toolkit [cite: 10]</span>
+                    <span class="skill-tag">Tailwind CSS [cite: 10]</span>
+                    <span class="skill-tag">Supabase [cite: 12]</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Featured Labs</h2>
+            <div class="grid-container">
+                <div class="neo-card">
+                    <h3>SweetSlice [cite: 43]</h3>
+                    <p style="font-size: 13px;">Full-stack E-commerce built with Next.js 14 and Stripe integration[cite: 45, 48].</p>
+                    <a href="https://sweetslice.vercel.app" style="color: var(--neon-pink); text-decoration: none; font-size: 12px; margin-top: 10px; display: block;">View Live →</a>
+                </div>
+                <div class="neo-card">
+                    <h3>Smart Bookmark Manager [cite: 51]</h3>
+                    <p style="font-size: 13px;">Real-time sync app using PostgreSQL Change Data Capture (CDC)[cite: 54].</p>
+                    <a href="https://bookmark-manager-rho-teal.vercel.app" style="color: var(--neon-pink); text-decoration: none; font-size: 12px; margin-top: 10px; display: block;">View Live →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <button class="btn-neon" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">Get In Touch</button>
+            <p style="margin-top: 40px; font-size: 12px; color: #444;">© 2026 Rachana Poojari. Designed for Industrial Excellence.</p>
+        </footer>
+    </main>
+
+    <script>
+        // SCROLL REVEAL LOGIC
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ACTIVE NAV LOGIC
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
