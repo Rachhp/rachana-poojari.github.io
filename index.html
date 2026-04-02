@@ -32,6 +32,33 @@ font-weight:600;
 --text-gray:#b0b0b0;
 --text-white:#ffffff;
 }
+      /* GLOBAL SCROLLBAR */
+
+::-webkit-scrollbar{
+width:4px;
+}
+
+::-webkit-scrollbar-track{
+background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--neon-pink);
+border-radius:10px;
+box-shadow:0 0 6px var(--neon-glow);
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ff2a96;
+box-shadow:0 0 10px var(--neon-glow);
+}
+
+/* Firefox Support */
+
+*{
+scrollbar-width:thin;
+scrollbar-color: var(--neon-pink) #050505;
+}
 
 *{
 margin:0;
