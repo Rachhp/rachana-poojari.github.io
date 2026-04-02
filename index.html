@@ -1,399 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rachana Poojari | Full-Stack Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-black: #050505;
-            --card-bg: #0f0f0f;
-            --neon-pink: #ff007f;
-            --neon-glow: rgba(255, 0, 127, 0.4);
-            --text-gray: #b0b0b0;
-            --text-white: #ffffff;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: var(--bg-black);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<title>Rachana Poojari | Full Stack Engineer</title>
 
-        /* 3D PROFILE COMPONENT */
-        .profile-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px auto;
-            perspective: 1000px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .profile-3d-card {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        .profile-container:hover .profile-3d-card {
-            transform: rotateY(15deg) rotateX(10deg);
-        }
+<style>
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            border: 2px solid var(--neon-pink);
-            box-shadow: 0 0 20px var(--neon-glow);
-            background: var(--card-bg);
-        }
+:root{
+--bg-black:#050505;
+--card-bg:#0f0f0f;
+--neon-pink:#ff007f;
+--neon-glow:rgba(255,0,127,0.4);
+--text-gray:#b0b0b0;
+--text-white:#ffffff;
+}
 
-        /* SIDE NAVIGATION */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 350px;
-            height: 100vh;
-            background: #080808;
-            padding: 50px 30px;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #1a1a1a;
-            z-index: 1000;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .sidebar h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 24px;
-            color: var(--neon-pink);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
+html{
+scroll-behavior:smooth;
+}
 
-        .sidebar p {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
+body{
+background:var(--bg-black);
+color:var(--text-white);
+font-family:'Source Sans Pro',sans-serif;
+line-height:1.6;
+overflow-x:hidden;
+}
 
-        .nav-links {
-            list-style: none;
-            margin-bottom: auto;
-        }
+/* SIDEBAR */
 
-        .nav-links li {
-            margin-bottom: 20px;
-        }
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:350px;
+height:100vh;
+background:#080808;
+padding:50px 30px;
+display:flex;
+flex-direction:column;
+border-right:1px solid #1a1a1a;
+overflow-y:auto;
+}
 
-        .nav-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-        }
+.sidebar h1{
+font-family:'Montserrat',sans-serif;
+font-size:24px;
+color:var(--neon-pink);
+margin-bottom:5px;
+}
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--neon-pink);
-            padding-left: 10px;
-        }
+.sidebar p{
+font-size:13px;
+color:var(--text-gray);
+margin-bottom:40px;
+}
 
-        .social-box {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
+/* PROFILE */
 
-        .social-box a {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: var(--text-white);
-            transition: 0.3s;
-        }
+.profile-container{
+width:200px;
+height:200px;
+margin:0 auto 25px auto;
+}
 
-        .social-box a:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 10px var(--neon-glow);
-            color: var(--neon-pink);
-        }
+.profile-img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:20px;
+border:2px solid var(--neon-pink);
+box-shadow:0 0 20px var(--neon-glow);
+animation:profileGlow 3s infinite alternate;
+}
 
-        /* MAIN CONTENT */
-        main {
-            margin-left: 350px;
-            padding: 80px 10%;
-        }
+@keyframes profileGlow{
+from{box-shadow:0 0 10px var(--neon-glow);}
+to{box-shadow:0 0 25px var(--neon-glow);}
+}
 
-        section {
-            margin-bottom: 120px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s ease-out;
-        }
+/* NAV */
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.nav-links{
+list-style:none;
+margin-bottom:auto;
+}
 
-        .section-title {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 32px;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+.nav-links li{
+margin-bottom:18px;
+}
 
-        .section-title::after {
-            content: '';
-            height: 2px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--neon-pink), transparent);
-        }
+.nav-links a{
+text-decoration:none;
+color:var(--text-gray);
+font-size:14px;
+font-weight:600;
+transition:0.3s;
+display:flex;
+align-items:center;
+}
 
-        /* CARDS & GRIDS */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+.nav-links a:hover,
+.nav-links a.active{
+color:var(--neon-pink);
+padding-left:8px;
+}
 
-        .neo-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #1a1a1a;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
+/* SOCIAL */
 
-        .neo-card:hover {
-            border-color: var(--neon-pink);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+.social-box{
+display:flex;
+gap:15px;
+margin-top:20px;
+}
 
-        .neo-card h3 {
-            color: var(--neon-pink);
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
+.social-box a{
+width:40px;
+height:40px;
+border:1px solid #222;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+color:white;
+transition:0.3s;
+}
 
-        .stats-highlight {
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--neon-pink);
-            margin-bottom: 5px;
-        }
+.social-box a:hover{
+border-color:var(--neon-pink);
+color:var(--neon-pink);
+box-shadow:0 0 10px var(--neon-glow);
+}
 
-        /* SKILLS PILLS */
-        .skill-tag {
-            display: inline-block;
-            padding: 6px 15px;
-            background: rgba(255, 0, 127, 0.1);
-            border: 1px solid var(--neon-pink);
-            border-radius: 50px;
-            font-size: 12px;
-            margin: 5px;
-            color: var(--text-white);
-        }
+/* MAIN */
 
-        /* CONTACT BUTTON */
-        .btn-neon {
-            padding: 15px 35px;
-            background: transparent;
-            color: var(--neon-pink);
-            border: 2px solid var(--neon-pink);
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-        }
+main{
+margin-left:350px;
+padding:80px 10%;
+}
 
-        .btn-neon:hover {
-            background: var(--neon-pink);
-            color: black;
-            box-shadow: 0 0 20px var(--neon-glow);
-        }
+section{
+margin-bottom:120px;
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
 
-        @media (max-width: 992px) {
-            .sidebar { width: 100%; height: auto; position: relative; }
-            main { margin-left: 0; padding: 40px 20px; }
-        }
-    </style>
+section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.section-title{
+font-family:'Montserrat',sans-serif;
+font-size:32px;
+margin-bottom:40px;
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.section-title::after{
+content:'';
+height:2px;
+flex-grow:1;
+background:linear-gradient(to right,var(--neon-pink),transparent);
+}
+
+/* CARD */
+
+.neo-card{
+background:var(--card-bg);
+padding:30px;
+border-radius:15px;
+border:1px solid #1a1a1a;
+transition:0.4s;
+}
+
+.neo-card:hover{
+border-color:var(--neon-pink);
+transform:translateY(-8px);
+box-shadow:0 15px 40px rgba(255,0,127,0.2);
+}
+
+/* GRID */
+
+.grid-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+/* SKILLS */
+
+.skill-tag{
+display:inline-block;
+padding:6px 15px;
+background:rgba(255,0,127,0.1);
+border:1px solid var(--neon-pink);
+border-radius:50px;
+font-size:12px;
+margin:5px;
+}
+
+/* BUTTON */
+
+.btn-neon{
+padding:12px 30px;
+background:transparent;
+color:var(--neon-pink);
+border:2px solid var(--neon-pink);
+cursor:pointer;
+font-weight:700;
+margin-top:20px;
+transition:0.3s;
+}
+
+.btn-neon:hover{
+background:var(--neon-pink);
+color:black;
+box-shadow:0 0 20px var(--neon-glow);
+}
+
+/* SUMMARY */
+
+.summary-text{
+opacity:0;
+animation:fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* PROJECT LINKS */
+
+.project-links a{
+font-size:12px;
+margin-right:15px;
+color:var(--neon-pink);
+text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+
+main{
+margin-left:0;
+padding:40px 20px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <aside class="sidebar">
-        <div class="profile-container">
-            <div class="profile-3d-card">
-                <img src="1772536548750.jfif" alt="Rachana Poojari" class="profile-img">
-            </div>
-        </div>
+<!-- SIDEBAR -->
 
-        <h1>Rachana Poojari</h1>
-        <p>Full-Stack Developer | Industrial Automation</p>
+<aside class="sidebar">
 
-        <ul class="nav-links">
-            <li><a href="#about" class="active"><i class="fa-solid fa-user-ninja mr-2"></i> &nbsp; Overview</a></li>
-            <li><a href="#experience"><i class="fa-solid fa-code-branch mr-2"></i> &nbsp; Industry Exp</a></li>
-            <li><a href="#skills"><i class="fa-solid fa-microchip mr-2"></i> &nbsp; Tech Stack</a></li>
-            <li><a href="#projects"><i class="fa-solid fa-terminal mr-2"></i> &nbsp; Projects</a></li>
-        </ul>
+<div class="profile-container">
+<img src="1772536548750.jfif" class="profile-img">
+</div>
 
-        <div class="social-box">
-            <a href="https://www.linkedin.com/in/rachana-poojari" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Rachhp" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:rachanapoojari2000@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-    </aside>
+<h1>Rachana Poojari</h1>
+<p>Full Stack Developer • Industrial Automation</p>
 
-    <main>
-        <section id="about">
-            <h2 class="section-title">Professional Summary</h2>
-            <div class="neo-card">
-                <p>Full-Stack Developer with 3+ years of production experience in **industrial automation systems** and modern web development[cite: 4]. I specialize in bridging the gap between sophisticated hardware integration and scalable .NET/React architectures[cite: 2, 5].</p>
-                <div style="display: flex; gap: 30px; margin-top: 30px;">
-                    <div>
-                        <div class="stats-highlight">65%</div>
-                        <p style="font-size: 12px; color: var(--text-gray);">Defect Reduction [cite: 7]</p>
-                    </div>
-                    <div>
-                        <div class="stats-highlight">25%</div>
-                        <p style="font-size: 12px; color: var(--text-gray);">Latency Optimization [cite: 7]</p>
-                    </div>
-                    <div>
-                        <div class="stats-highlight">40%</div>
-                        <p style="font-size: 12px; color: var(--text-gray);">Efficiency Gain [cite: 7]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<ul class="nav-links">
 
-        <section id="experience">
-            <h2 class="section-title">Industry Impact</h2>
-            <div class="grid-container">
-                <div class="neo-card">
-                    <h3>Vertical Lift System (VLS) [cite: 23]</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">Architected end-to-end workflows and state machines for automated warehouse storage[cite: 24]. Integrated laser peripheral protocols via Serial (COM/USB) with full error recovery[cite: 25].</p>
-                </div>
-                <div class="neo-card">
-                    <h3>Automated Bumper Storage [cite: 29]</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">Owned backend architecture and database schema design from scratch[cite: 30]. Developed barcode/QR workflows integrated with forklift controller operations[cite: 31].</p>
-                </div>
-                <div class="neo-card">
-                    <h3>Biometric Integration [cite: 6]</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">Engineered Python-based facial recognition and fingerprint authentication modules integrated with ASP.NET Core backends[cite: 26, 35].</p>
-                </div>
-            </div>
-        </section>
+<li><a href="#about" class="active"><i class="fa fa-user"></i>&nbsp;&nbsp;Overview</a></li>
 
-        <section id="skills">
-            <h2 class="section-title">The Stack</h2>
-            <div class="neo-card">
-                <h3 style="color: white; border-bottom: 1px solid #222; padding-bottom: 10px;">Backend & Hardware</h3>
-                <div style="margin-bottom: 20px;">
-                    <span class="skill-tag">C# / .NET Core 8 [cite: 10]</span>
-                    <span class="skill-tag">Web API [cite: 10]</span>
-                    <span class="skill-tag">Python (FastAPI) [cite: 10]</span>
-                    <span class="skill-tag">Serial (RS232/USB) [cite: 13]</span>
-                    <span class="skill-tag">PLC Integration [cite: 13]</span>
-                    <span class="skill-tag">Entity Framework [cite: 10]</span>
-                </div>
+<li><a href="#experience"><i class="fa fa-code-branch"></i>&nbsp;&nbsp;Industry Experience</a></li>
 
-                <h3 style="color: white; border-bottom: 1px solid #222; padding-bottom: 10px;">Frontend & Modern Web</h3>
-                <div>
-                    <span class="skill-tag">React 18 [cite: 10]</span>
-                    <span class="skill-tag">Next.js 14 [cite: 10]</span>
-                    <span class="skill-tag">TypeScript [cite: 10]</span>
-                    <span class="skill-tag">Redux Toolkit [cite: 10]</span>
-                    <span class="skill-tag">Tailwind CSS [cite: 10]</span>
-                    <span class="skill-tag">Supabase [cite: 12]</span>
-                </div>
-            </div>
-        </section>
+<li><a href="#skills"><i class="fa fa-microchip"></i>&nbsp;&nbsp;Technical Expertise</a></li>
 
-        <section id="projects">
-            <h2 class="section-title">Featured Labs</h2>
-            <div class="grid-container">
-                <div class="neo-card">
-                    <h3>SweetSlice [cite: 43]</h3>
-                    <p style="font-size: 13px;">Full-stack E-commerce built with Next.js 14 and Stripe integration[cite: 45, 48].</p>
-                    <a href="https://sweetslice.vercel.app" style="color: var(--neon-pink); text-decoration: none; font-size: 12px; margin-top: 10px; display: block;">View Live →</a>
-                </div>
-                <div class="neo-card">
-                    <h3>Smart Bookmark Manager [cite: 51]</h3>
-                    <p style="font-size: 13px;">Real-time sync app using PostgreSQL Change Data Capture (CDC)[cite: 54].</p>
-                    <a href="https://bookmark-manager-rho-teal.vercel.app" style="color: var(--neon-pink); text-decoration: none; font-size: 12px; margin-top: 10px; display: block;">View Live →</a>
-                </div>
-            </div>
-        </section>
+<li><a href="#projects"><i class="fa fa-terminal"></i>&nbsp;&nbsp;Engineering Projects</a></li>
 
-        <footer>
-            <button class="btn-neon" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">Get In Touch</button>
-            <p style="margin-top: 40px; font-size: 12px; color: #444;">© 2026 Rachana Poojari. Designed for Industrial Excellence.</p>
-        </footer>
-    </main>
+</ul>
 
-    <script>
-        // SCROLL REVEAL LOGIC
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+<div class="social-box">
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+<a href="https://linkedin.com/in/rachana-poojari-dev" target="_blank">
+<i class="fab fa-linkedin-in"></i>
+</a>
 
-        // ACTIVE NAV LOGIC
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
+<a href="Rachana-Poojari.pdf" target="_blank">
+<i class="fa fa-file-lines"></i>
+</a>
 
-            document.querySelectorAll('.nav-links a').forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        });
-    </script>
+</div>
+
+</aside>
+
+<!-- MAIN -->
+
+<main>
+
+<section id="about">
+
+<h2 class="section-title">Professional Summary</h2>
+
+<div class="neo-card">
+
+<p class="summary-text">
+
+Full-Stack Developer with 3+ years of production experience in industrial automation systems and enterprise web applications.
+
+Specialized in building scalable backend architectures using C# / .NET Core and modern front-end systems with React and Next.js.
+
+Experienced in integrating real-world industrial hardware including PLC systems, biometric devices, barcode printers, and serial communication peripherals.
+
+Focused on designing reliable warehouse automation platforms, high-performance APIs, and real-time operator dashboards used in live production environments.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="section-title">Industry Experience</h2>
+
+<div class="grid-container">
+
+<div class="neo-card">
+<h3>Vertical Lift System (VLS)</h3>
+<p>Designed operator workflows, state machines, and real-time dashboards for automated warehouse storage systems integrated with PLC hardware and serial device communication.</p>
+</div>
+
+<div class="neo-card">
+<h3>Automated Bumper Storage System</h3>
+<p>Developed backend architecture and database schema supporting automated storage workflows, barcode printing systems, and forklift controller integrations.</p>
+</div>
+
+<div class="neo-card">
+<h3>IMS / ITMS Enterprise Modules</h3>
+<p>Integrated biometric hardware authentication using fingerprint and facial recognition modules with ASP.NET Core backend services.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">Technical Expertise</h2>
+
+<div class="neo-card">
+
+<h3>Backend & Hardware</h3>
+
+<span class="skill-tag">C# / .NET Core</span>
+<span class="skill-tag">ASP.NET Core</span>
+<span class="skill-tag">Web API</span>
+<span class="skill-tag">Entity Framework Core</span>
+<span class="skill-tag">LINQ</span>
+<span class="skill-tag">Python (FastAPI)</span>
+
+<div id="backendMore" style="display:none">
+
+<span class="skill-tag">Razor Pages</span>
+<span class="skill-tag">BCrypt</span>
+<span class="skill-tag">REST API Design</span>
+<span class="skill-tag">State Machine Design</span>
+<span class="skill-tag">Workflow Orchestration</span>
+
+</div>
+
+<button class="btn-neon" onclick="toggleBackend()">More</button>
+
+<h3 style="margin-top:25px">Frontend</h3>
+
+<span class="skill-tag">React 18</span>
+<span class="skill-tag">Next.js 14</span>
+<span class="skill-tag">TypeScript</span>
+<span class="skill-tag">Redux Toolkit</span>
+<span class="skill-tag">Tailwind CSS</span>
+
+<div id="frontendMore" style="display:none">
+
+<span class="skill-tag">Bootstrap</span>
+<span class="skill-tag">jQuery</span>
+<span class="skill-tag">AJAX</span>
+<span class="skill-tag">HTML5</span>
+<span class="skill-tag">CSS3</span>
+
+</div>
+
+<button class="btn-neon" onclick="toggleFrontend()">More</button>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="section-title">Engineering Projects</h2>
+
+<div class="grid-container">
+
+<div class="neo-card">
+
+<h3>SweetSlice</h3>
+
+<p>Full-stack e-commerce platform built with Next.js 14, Stripe payments, and Supabase authentication.</p>
+
+<div class="project-links">
+
+<a href="https://sweetslice.vercel.app" target="_blank">Live Demo</a>
+
+<a href="https://github.com/Rachhp/sweetslice" target="_blank">Source Code</a>
+
+</div>
+
+</div>
+
+<div class="neo-card">
+
+<h3>Smart Bookmark Manager</h3>
+
+<p>Real-time bookmark application using PostgreSQL Change Data Capture with Supabase realtime sync.</p>
+
+<div class="project-links">
+
+<a href="https://bookmark-manager-rho-teal.vercel.app" target="_blank">Live Demo</a>
+
+<a href="https://github.com/Rachhp/bookmark-manager" target="_blank">Source Code</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<button class="btn-neon" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">
+
+Get In Touch
+
+</button>
+
+<p style="margin-top:40px;font-size:12px;color:#444">
+
+© 2026 Rachana Poojari
+
+</p>
+
+</footer>
+
+</main>
+
+<script>
+
+/* reveal animation */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+},{threshold:0.1});
+
+document.querySelectorAll("section").forEach(section=>{
+observer.observe(section);
+});
+
+/* skills toggle */
+
+function toggleBackend(){
+
+const x=document.getElementById("backendMore");
+
+x.style.display=x.style.display==="none"?"block":"none";
+
+}
+
+function toggleFrontend(){
+
+const x=document.getElementById("frontendMore");
+
+x.style.display=x.style.display==="none"?"block":"none";
+
+}
+
+/* disable right click */
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+document.onkeydown=function(e){
+
+if(e.keyCode==123){return false;}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==73){return false;}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==74){return false;}
+
+if(e.ctrlKey && e.keyCode==85){return false;}
+
+};
+
+</script>
+
 </body>
 </html>
