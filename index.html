@@ -12,7 +12,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
+.skill-more{
+display:inline-block;
+padding:6px 15px;
+border-radius:50px;
+font-size:12px;
+margin:5px;
+cursor:pointer;
+background:var(--neon-pink);
+color:black;
+border:1px solid var(--neon-pink);
+font-weight:600;
+}
 :root{
 --bg-black:#050505;
 --card-bg:#0f0f0f;
@@ -369,7 +380,7 @@ Experienced in integrating industrial hardware including PLC systems, barcode pr
 
 </div>
 
-<span class="skill-tag" onclick="toggleBackend()" id="backendBtn">More</span>
+<span class="skill-more" onclick="toggleBackend()" id="backendBtn">More</span>
 
 <h3 style="margin-top:25px">Frontend</h3>
 
@@ -389,7 +400,7 @@ Experienced in integrating industrial hardware including PLC systems, barcode pr
 
 </div>
 
-<span class="skill-tag" onclick="toggleFrontend()" id="frontendBtn">More</span>
+<span class="skill-more" onclick="toggleFrontend()" id="frontendBtn">More</span>
 
 </div>
 
@@ -466,7 +477,7 @@ Experienced in integrating industrial hardware including PLC systems, barcode pr
 
 <footer>
 
-<button class="skill-tag" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">
+<button class="btn-neon" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">
 Get In Touch
 </button>
 
