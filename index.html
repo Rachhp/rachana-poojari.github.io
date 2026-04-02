@@ -214,25 +214,7 @@ border:1px solid var(--neon-pink);
 border-radius:50px;
 font-size:12px;
 margin:5px;
-}
-
-/* BUTTON */
-
-.btn-neon{
-padding:12px 30px;
-background:transparent;
-color:var(--neon-pink);
-border:2px solid var(--neon-pink);
 cursor:pointer;
-font-weight:700;
-margin-top:20px;
-transition:0.3s;
-}
-
-.btn-neon:hover{
-background:var(--neon-pink);
-color:black;
-box-shadow:0 0 20px var(--neon-glow);
 }
 
 /* SUMMARY */
@@ -278,8 +260,6 @@ padding:40px 20px;
 
 <body>
 
-<!-- SIDEBAR -->
-
 <aside class="sidebar">
 
 <div class="profile-container">
@@ -297,7 +277,11 @@ padding:40px 20px;
 
 <li><a href="#skills"><i class="fa fa-microchip"></i>&nbsp;&nbsp;Technical Expertise</a></li>
 
-<li><a href="#projects"><i class="fa fa-terminal"></i>&nbsp;&nbsp;Engineering Projects</a></li>
+<li><a href="#projects"><i class="fa fa-terminal"></i>&nbsp;&nbsp;Projects</a></li>
+
+<li><a href="#education"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;Education</a></li>
+
+<li><a href="#certificates"><i class="fa fa-certificate"></i>&nbsp;&nbsp;Certificates</a></li>
 
 </ul>
 
@@ -315,8 +299,6 @@ padding:40px 20px;
 
 </aside>
 
-<!-- MAIN -->
-
 <main>
 
 <section id="about">
@@ -327,13 +309,9 @@ padding:40px 20px;
 
 <p class="summary-text">
 
-Full-Stack Developer with 3+ years of production experience in industrial automation systems and enterprise web applications.
+Full-Stack Developer with 3+ years of production experience in industrial automation systems and enterprise web applications. Specialized in building scalable backend architectures using C# / .NET Core and modern front-end systems with React and Next.js.
 
-Specialized in building scalable backend architectures using C# / .NET Core and modern front-end systems with React and Next.js.
-
-Experienced in integrating real-world industrial hardware including PLC systems, biometric devices, barcode printers, and serial communication peripherals.
-
-Focused on designing reliable warehouse automation platforms, high-performance APIs, and real-time operator dashboards used in live production environments.
+Experienced in integrating industrial hardware including PLC systems, barcode printers, biometric authentication devices, and serial communication peripherals within warehouse automation platforms.
 
 </p>
 
@@ -349,17 +327,17 @@ Focused on designing reliable warehouse automation platforms, high-performance A
 
 <div class="neo-card">
 <h3>Vertical Lift System (VLS)</h3>
-<p>Designed operator workflows, state machines, and real-time dashboards for automated warehouse storage systems integrated with PLC hardware and serial device communication.</p>
+<p>Designed operator workflows, state machines, and dashboards for automated warehouse storage systems integrated with PLC hardware and serial device communication.</p>
 </div>
 
 <div class="neo-card">
 <h3>Automated Bumper Storage System</h3>
-<p>Developed backend architecture and database schema supporting automated storage workflows, barcode printing systems, and forklift controller integrations.</p>
+<p>Developed backend architecture and database schema supporting automated storage workflows and barcode-based tracking systems.</p>
 </div>
 
 <div class="neo-card">
 <h3>IMS / ITMS Enterprise Modules</h3>
-<p>Integrated biometric hardware authentication using fingerprint and facial recognition modules with ASP.NET Core backend services.</p>
+<p>Integrated biometric authentication systems and enterprise modules using serial device communication and ASP.NET backend services.</p>
 </div>
 
 </div>
@@ -374,29 +352,29 @@ Focused on designing reliable warehouse automation platforms, high-performance A
 
 <h3>Backend & Hardware</h3>
 
-<span class="skill-tag">C# / .NET Core</span>
+<span class="skill-tag">C#</span>
 <span class="skill-tag">ASP.NET Core</span>
 <span class="skill-tag">Web API</span>
-<span class="skill-tag">Entity Framework Core</span>
+<span class="skill-tag">Entity Framework</span>
 <span class="skill-tag">LINQ</span>
-<span class="skill-tag">Python (FastAPI)</span>
+<span class="skill-tag">Python</span>
 
 <div id="backendMore" style="display:none">
 
 <span class="skill-tag">Razor Pages</span>
 <span class="skill-tag">BCrypt</span>
-<span class="skill-tag">REST API Design</span>
-<span class="skill-tag">State Machine Design</span>
+<span class="skill-tag">REST APIs</span>
+<span class="skill-tag">State Machines</span>
 <span class="skill-tag">Workflow Orchestration</span>
 
 </div>
 
-<button class="btn-neon" onclick="toggleBackend()">More</button>
+<span class="skill-tag" onclick="toggleBackend()" id="backendBtn">More</span>
 
 <h3 style="margin-top:25px">Frontend</h3>
 
-<span class="skill-tag">React 18</span>
-<span class="skill-tag">Next.js 14</span>
+<span class="skill-tag">React</span>
+<span class="skill-tag">Next.js</span>
 <span class="skill-tag">TypeScript</span>
 <span class="skill-tag">Redux Toolkit</span>
 <span class="skill-tag">Tailwind CSS</span>
@@ -411,7 +389,7 @@ Focused on designing reliable warehouse automation platforms, high-performance A
 
 </div>
 
-<button class="btn-neon" onclick="toggleFrontend()">More</button>
+<span class="skill-tag" onclick="toggleFrontend()" id="frontendBtn">More</span>
 
 </div>
 
@@ -419,40 +397,67 @@ Focused on designing reliable warehouse automation platforms, high-performance A
 
 <section id="projects">
 
-<h2 class="section-title">Engineering Projects</h2>
+<h2 class="section-title">Projects</h2>
 
 <div class="grid-container">
 
 <div class="neo-card">
-
 <h3>SweetSlice</h3>
-
-<p>Full-stack e-commerce platform built with Next.js 14, Stripe payments, and Supabase authentication.</p>
-
+<p>Full-stack e-commerce platform built with Next.js, Stripe payments, and Supabase authentication.</p>
 <div class="project-links">
-
-<a href="https://sweetslice.vercel.app" target="_blank">Live Demo</a>
-
-<a href="https://github.com/Rachhp/sweetslice" target="_blank">Source Code</a>
-
+<a href="https://sweetslice.vercel.app" target="_blank">Live</a>
+<a href="https://github.com/Rachhp/sweetslice" target="_blank">Code</a>
 </div>
-
 </div>
 
 <div class="neo-card">
-
 <h3>Smart Bookmark Manager</h3>
-
-<p>Real-time bookmark application using PostgreSQL Change Data Capture with Supabase realtime sync.</p>
-
+<p>Real-time bookmark manager using PostgreSQL Change Data Capture and Supabase realtime synchronization.</p>
 <div class="project-links">
-
-<a href="https://bookmark-manager-rho-teal.vercel.app" target="_blank">Live Demo</a>
-
-<a href="https://github.com/Rachhp/bookmark-manager" target="_blank">Source Code</a>
+<a href="https://bookmark-manager-rho-teal.vercel.app" target="_blank">Live</a>
+<a href="https://github.com/Rachhp/bookmark-manager" target="_blank">Code</a>
+</div>
+</div>
 
 </div>
 
+</section>
+
+<section id="education">
+
+<h2 class="section-title">Education</h2>
+
+<div class="grid-container">
+
+<div class="neo-card">
+<h3>Bachelor of Computer Applications</h3>
+<p>KLS Gogte College of Commerce, Belagavi</p>
+<p>Graduated 2022</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="certificates">
+
+<h2 class="section-title">Certificates</h2>
+
+<div class="grid-container">
+
+<div class="neo-card">
+<h3>Google Cloud Skills Boost</h3>
+<p>BigQuery Streaming Analytics, DLP API, Generative AI</p>
+</div>
+
+<div class="neo-card">
+<h3>Full-Stack Development</h3>
+<p>KodNest Technologies – Java & Python</p>
+</div>
+
+<div class="neo-card">
+<h3>ISO Documentation & Internal Audits</h3>
+<p>IMS · QMS · ISMS · OHMS</p>
 </div>
 
 </div>
@@ -461,16 +466,12 @@ Focused on designing reliable warehouse automation platforms, high-performance A
 
 <footer>
 
-<button class="btn-neon" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">
-
+<button class="skill-tag" onclick="window.location.href='mailto:rachanapoojari2000@gmail.com'">
 Get In Touch
-
 </button>
 
 <p style="margin-top:40px;font-size:12px;color:#444">
-
 © 2026 Rachana Poojari
-
 </p>
 
 </footer>
@@ -478,8 +479,6 @@ Get In Touch
 </main>
 
 <script>
-
-/* reveal animation */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
@@ -493,39 +492,33 @@ document.querySelectorAll("section").forEach(section=>{
 observer.observe(section);
 });
 
-/* skills toggle */
-
 function toggleBackend(){
-
 const x=document.getElementById("backendMore");
+const btn=document.getElementById("backendBtn");
 
-x.style.display=x.style.display==="none"?"block":"none";
-
+if(x.style.display==="none"){
+x.style.display="block";
+btn.innerText="Less";
+}else{
+x.style.display="none";
+btn.innerText="More";
+}
 }
 
 function toggleFrontend(){
-
 const x=document.getElementById("frontendMore");
+const btn=document.getElementById("frontendBtn");
 
-x.style.display=x.style.display==="none"?"block":"none";
-
+if(x.style.display==="none"){
+x.style.display="block";
+btn.innerText="Less";
+}else{
+x.style.display="none";
+btn.innerText="More";
+}
 }
 
-/* disable right click */
-
 document.addEventListener("contextmenu",e=>e.preventDefault());
-
-document.onkeydown=function(e){
-
-if(e.keyCode==123){return false;}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==73){return false;}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode==74){return false;}
-
-if(e.ctrlKey && e.keyCode==85){return false;}
-
-};
 
 </script>
 
